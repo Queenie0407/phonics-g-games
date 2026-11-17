@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#466b36">
+  <meta name="description" content="A bilingual phonics garden game for learning soft G and hard G.">
+  <title>Quokka's G-Sound Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+  <section id="home-screen" class="screen home active" aria-labelledby="home-title">
+    <img class="home-teacher" src="assets/quokka-teacher.png" alt="Quokka teacher with a star wand">
+    <div class="home-card panel">
+      <p class="eyebrow">A PHONICS GARDEN ADVENTURE</p>
+      <h1 id="home-title">Quokka's<br><span>G-Sound Garden</span></h1>
+      <p class="story"><strong>Help the Sproutlings grow with the right G sound!</strong><span>分辨正確的 G 音，幫助嫩芽精靈開花！</span></p>
+      <div class="sound-badges">
+        <article class="soft"><i>💎</i><b>SOFT G /dʒ/</b><span>柔音 g</span></article>
+        <article class="hard"><i>🍂</i><b>HARD G /g/</b><span>硬音 g</span></article>
+      </div>
+      <button id="start-btn" class="primary bilingual"><span>Start Growing!</span><small>開始培育</small></button>
+      <button id="how-btn" class="link-btn">How to Play｜玩法說明</button>
+    </div>
+  </section>
+
+  <section id="map-screen" class="screen map" aria-labelledby="map-title">
+    <header class="topbar panel">
+      <div><p class="eyebrow">THE G-SOUND TRAIL</p><h2 id="map-title">Garden Map <small>花園地圖</small></h2></div>
+      <div class="actions"><button class="round" data-action="home" aria-label="Home">⌂</button><button class="round bgm-toggle" aria-label="Background music">♫</button><button class="round sfx-toggle" aria-label="Sound effects">🔊</button></div>
+    </header>
+    <div class="level-path" role="list">
+      <button class="level-card unlocked" data-level="0"><span>1</span><b>Gentle Garden</b><small>柔音花園</small><em>SOFT G /dʒ/ · 3×3</em></button>
+      <i>❀ ❀ ❀</i>
+      <button class="level-card" data-level="1"><span>2</span><b>Greenhouse Gate</b><small>溫室大門</small><em>HARD G /g/ · 4×4</em><u>🔒</u></button>
+      <i>❀ ❀ ❀</i>
+      <button class="level-card" data-level="2"><span>3</span><b>Grand Garden Festival</b><small>花園慶典</small><em>MIXED · 5×5</em><u>🔒</u></button>
+    </div>
+    <aside class="teacher-tip panel"><img src="assets/quokka-teacher.png" alt=""><p><b>Choose a garden to begin.</b><span>選擇已解鎖的花園開始挑戰。</span></p></aside>
+  </section>
+
+  <section id="game-screen" class="screen game" aria-labelledby="mission-title">
+    <header class="hud panel">
+      <button class="round" data-action="map" aria-label="Back to map">←</button>
+      <div id="hearts" class="stat hearts">♥ ♥ ♥ ♥ ♥</div>
+      <div class="stat">⏳ <span id="time-value">70</span></div>
+      <div class="stat">⭐ <span id="score-value">0</span>/<span id="goal-value">8</span></div>
+      <button id="pause-btn" class="round" aria-label="Pause">Ⅱ</button><button class="round bgm-toggle" aria-label="Background music">♫</button><button class="round sfx-toggle" aria-label="Sound effects">🔊</button>
+    </header>
+    <div class="mission panel">
+      <div><small id="stage-label">STAGE 1 · 3×3</small><h2 id="mission-title">Find <b id="target-label">SOFT G /dʒ/</b></h2><p id="mission-zh">找出發 /dʒ/ 的 soft g 單字</p></div>
+      <button id="target-sound" class="listen"><strong>🔊</strong><b>Hear the sound</b><small>聆聽目標音</small></button>
+    </div>
+    <div class="audio-tip">🔊 Tap to hear the word and gain +3 seconds｜按喇叭聽單字並增加 3 秒</div>
+    <div id="garden-grid" class="garden-grid grid-3" aria-live="polite"></div>
+    <div id="feedback" class="feedback" role="status" aria-live="assertive"></div>
+    <div id="wand" class="wand" aria-hidden="true">🪄</div>
+  </section>
+
+  <section id="result-screen" class="screen result" aria-labelledby="result-title">
+    <div class="result-card panel">
+      <div id="result-stars" class="result-stars">★ ★ ★</div>
+      <h2 id="result-title">Garden in Bloom!</h2><p id="result-subtitle">花園盛開了！</p>
+      <img id="result-sprout" src="assets/sprout-correct.png" alt="Celebrating Sproutling">
+      <div class="result-stats"><div><b id="result-score">8/8</b><span>Score｜得分</span></div><div><b id="result-accuracy">100%</b><span>Accuracy｜正確率</span></div><div><b id="result-listens">0</b><span>Listens｜聆聽</span></div></div>
+      <div class="result-actions"><button id="retry-btn" class="secondary bilingual"><span>Play Again</span><small>再玩一次</small></button><button id="continue-btn" class="primary bilingual"><span>Continue</span><small>繼續</small></button></div>
+    </div>
+  </section>
+
+  <div id="tutorial" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="tutorial-title">
+    <div class="tutorial-card panel"><button class="close" aria-label="Close">×</button><img src="assets/quokka-teacher.png" alt="Quokka teacher"><div><p class="eyebrow">QUOKKA TEACHER SAYS</p><h2 id="tutorial-title">Two Sounds of G <small>G 的兩種聲音</small></h2><div class="rules"><article class="soft"><b>SOFT G /dʒ/</b><p>G often sounds like /dʒ/ before <strong>e, i, or y</strong>.</p><span>g 在 e、i、y 前面通常發 /dʒ/。</span><em>gem · giant · gym</em></article><article class="hard"><b>HARD G /g/</b><p>G usually sounds like /g/ in other positions.</p><span>g 在其他位置通常發 /g/。</span><em>gum · gate · pig</em></article></div><ol><li><b>Read the word or tap 🔊 to listen.</b><span>閱讀單字，或按喇叭聽發音。</span></li><li><b>Listening adds three seconds.</b><span>按語音可為當前題目增加三秒。</span></li><li><b>Tap only the target G sound.</b><span>只點選符合目標 G 音的嫩芽精靈。</span></li></ol><button id="tutorial-go" class="primary bilingual"><span>Let's Grow!</span><small>開始培育！</small></button></div></div>
+  </div>
+  <div id="pause-modal" class="modal" aria-hidden="true"><div class="pause-card panel"><h2>Garden Paused <small>花園暫停</small></h2><button id="resume-btn" class="primary bilingual"><span>Resume</span><small>繼續</small></button></div></div>
+</main>
+<audio id="bgm" src="sound/background-music.mp3" loop preload="auto"></audio>
+<audio id="sfx-swing" src="sound/wand-swing.mp3" preload="auto"></audio><audio id="sfx-hit" src="sound/magic-bonk.mp3" preload="auto"></audio><audio id="sfx-score" src="sound/correct-chime.mp3" preload="auto"></audio><audio id="sfx-hurt" src="sound/sprout-hurt.mp3" preload="auto"></audio><audio id="sfx-cheer" src="sound/level-cheer.mp3" preload="auto"></audio>
+<script src="app.js"></script>
+</body></html>
