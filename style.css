@@ -11,3 +11,4 @@ html,body{font-family:"Andika","Noto Sans TC","Comic Sans MS",sans-serif}
 h1,h2,h3,button,.word-card,.feedback{font-family:"Andika","Noto Sans TC","Comic Sans MS",sans-serif}
 .word-card{min-width:78%;text-align:center;font-size:clamp(.82rem,2vw,1.3rem);letter-spacing:.025em;line-height:1.15}
 @media(max-width:620px){.word-card{min-width:82%;font-size:clamp(.72rem,3vw,.9rem);padding:.24rem .35rem}}
+.wand.swing{animation-duration:.42s}
