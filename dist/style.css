@@ -12,3 +12,12 @@ h1,h2,h3,button,.word-card,.feedback{font-family:"Andika","Noto Sans TC","Comic 
 .word-card{min-width:78%;text-align:center;font-size:clamp(.82rem,2vw,1.3rem);letter-spacing:.025em;line-height:1.15}
 @media(max-width:620px){.word-card{min-width:82%;font-size:clamp(.72rem,3vw,.9rem);padding:.24rem .35rem}}
 .wand.swing{animation-duration:.42s}
+.hole.active{z-index:12}
+.grid-3 .hole.active .sprout-wrap{transform:translateY(-26%)}
+.grid-4 .hole.active .sprout-wrap{transform:translateY(-22%)}
+.grid-5 .hole.active .sprout-wrap{transform:translateY(-19%)}
+.floating-music{position:fixed;z-index:55;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));display:grid;place-items:center;width:56px;height:56px;border:4px solid #ffe083;border-radius:50%;background:linear-gradient(#78a758,#426b36);color:white;font-family:"Andika",sans-serif;font-size:1.65rem;font-weight:700;box-shadow:0 6px 0 #31502b,0 10px 22px rgba(32,61,30,.35);cursor:pointer;transition:transform .16s,filter .16s,opacity .16s}
+.floating-music:hover{transform:translateY(-2px)}
+.floating-music.off{background:linear-gradient(#8f968a,#62695e);filter:grayscale(.65);opacity:.82}
+.floating-music:focus-visible{outline:4px solid white;outline-offset:3px}
+@media(max-width:620px){.floating-music{width:48px;height:48px;right:10px;bottom:10px;font-size:1.35rem}}
